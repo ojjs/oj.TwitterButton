@@ -1,4 +1,4 @@
 oj.TwitterFollowButton
-======================
+============
 
-Twitter follow button plugin for OJ
+A Twitter follow button plugin for OJ
