@@ -37,7 +37,7 @@ module.exports = function(oj,settings){
       }
 
       // Create el
-      this.el = oj.toDOM(function(){
+      this.ojml = oj(function(){
         var size = null, tailor = null;
         if (this_.large)
           size = {'data-size':'large'};
