@@ -8,7 +8,7 @@ module.exports = function(oj,settings){
   if (typeof settings !== 'object')
     settings = {}
 
-  var TwitterFollowButton = oj.type('TwitterFollowButton', {
+  var TwitterFollowButton = oj.createType('TwitterFollowButton', {
 
     base: oj.View,
 
@@ -82,7 +82,9 @@ module.exports = function(oj,settings){
             dataType: "script",
             cached: true,
             // Show button once api has been called (avoids flickering)
-            complete: function(){this_.$el.show()}
+            complete: function(){
+              this_.$el.show()
+            }
           });
         }
         _loaded = 1;
