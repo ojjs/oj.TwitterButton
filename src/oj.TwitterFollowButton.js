@@ -1,10 +1,9 @@
-// oj.TwitterFollowButton
+// oj.TwitterFollowButton.js
 
-// Load twitter api only once
-var _loaded;
+(function(){
 
 // Create plugin
-module.exports = function(oj,settings){
+var plugin = function(oj,settings){
   if (typeof settings !== 'object')
     settings = {}
 
@@ -14,7 +13,7 @@ module.exports = function(oj,settings){
 
     constructor: function(){
       var this_ = this;
-      var union = oj.argumentsUnion(arguments);
+      var union = oj.unionArguments(arguments);
       var options = union.options;
       var args = union.args;
 
@@ -25,7 +24,7 @@ module.exports = function(oj,settings){
       // Shift properties
       var props = [
         'label',
-        'large',
+        'size',
         'showCount',
         'showUsername',
         'username'
@@ -39,16 +38,16 @@ module.exports = function(oj,settings){
       // Create el
       this.el = oj(function(){
         var size = null, tailor = null;
-        if (this_.large)
-          size = {'data-size':'large'};
+        if (this_.size)
+          size = {'data-size':this_.size.toString()};
         if (!this_.showTailoring)
-          tailor = {'data-dnt':false};
+          tailor = {'data-dnt':(!this_.showTailoring).toString()};
 
         oj.a("Follow @" + this_.username, {
-            href: 'https://twitter.com/' + this_.username,
+            href: 'https://twitter.com/' + this_.username.toString(),
             c:'twitter-follow-button',
-            'data-show-count':this_.showCount,
-            'data-show-screen-name':this_.showUsername,
+            'data-show-count':this_.showCount.toString(),
+            'data-show-screen-name':this_.showUsername.toString(),
             style:{display:'none'}
           },
           tailor,
@@ -62,35 +61,43 @@ module.exports = function(oj,settings){
     },
     properties: {
       username: 'evanmoran',
-
-      showUsername: true,
-
       showCount: false,
-
+      showUsername: true,
       showTailoring: true,
-
-      large: false
+      size:{
+        get:function(){return this._size || 'medium';},
+        set:function(v){this._size = v;}
+      }
     },
 
     methods: {
       loadTwitterAPI:function(){
         var this_ = this;
-        if (oj.isClient && !_loaded) {
+        if (oj.isClient && !TwitterFollowButton._loaded) {
           var p=/^http:/.test(document.location)?'http':'https';
+          var url = p + '://platform.twitter.com/widgets.js';
           $.ajax({
-            url: p + '://platform.twitter.com/widgets.js',
-            dataType: "script",
-            cached: true,
-            // Show button once api has been called (avoids flickering)
-            complete: function(){
-              this_.$el.show()
-            }
+            url:url,
+            cache:true,
+            dataType:'script'
+          }).always(function(result){
+            this_.$el.show()
           });
+          TwitterFollowButton._loaded = true;
         }
-        _loaded = 1;
       }
     }
   });
 
   return {TwitterFollowButton:TwitterFollowButton};
 };
+
+// Export in OJ
+if (typeof oj != 'undefined')
+  oj.use(plugin);
+
+// Export in node
+if (typeof module != 'undefined' && typeof module.exports != 'undefined')
+  module.exports = plugin;
+
+})(this);
