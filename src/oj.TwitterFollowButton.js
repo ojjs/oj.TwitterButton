@@ -61,7 +61,7 @@ var plugin = function(oj,settings){
     },
     properties: {
       username: 'evanmoran',
-      showCount: false,
+      showCount: true,
       showUsername: true,
       showTailoring: true,
       size:{
@@ -80,11 +80,13 @@ var plugin = function(oj,settings){
             url:url,
             cache:true,
             dataType:'script'
+          // Prevents flickering for slow connections
           }).always(function(result){
             this_.$el.show()
           });
           TwitterFollowButton._loaded = true;
         }
+
       }
     }
   });
