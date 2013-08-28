@@ -1,9 +1,9 @@
 {
-  "name": "oj-twitter-follow-button",
-  "version": "0.0.3",
-  "main": "src/oj.TwitterFollowButton.js",
-  "description": "Twitter follow button plugin for OJ",
-  "homepage": "http://ojjs.org/docs#TwitterFollowButton",
+  "name": "oj-twitter-button",
+  "version": "0.0.4",
+  "main": "src/oj.TwitterButton.js",
+  "description": "Twitter button plugin for OJ",
+  "homepage": "http://ojjs.org/docs#TwitterButton",
   "keywords": [
     "oj",
     "plugin",
@@ -13,6 +13,6 @@
   "author": "Evan Moran <evan@evanmoran.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ojjs/oj.TwitterFollowButton.git"
+    "url": "git://github.com/ojjs/oj.TwitterButton.git"
   }
 }
