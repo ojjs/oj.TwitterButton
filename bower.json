@@ -1,6 +1,6 @@
 {
   "name": "oj-twitter-button",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "oj.TwitterButton.js",
   "homepage": "http://ojjs.org/plugins.html#TwitterButton",
   "authors": [
