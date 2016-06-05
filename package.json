@@ -1,18 +1,20 @@
 {
-  "name": "oj-twitter-button",
-  "version": "0.0.6",
-  "main": "oj.TwitterButton.js",
-  "description": "Twitter button plugin for OJ",
-  "homepage": "http://ojjs.org/plugins.html#TwitterButton",
+  "name": "oj-suggest-box",
+  "version": "0.0.1",
+  "main": "oj.SuggestBox.js",
+  "description": "A TextBox plugin for OJ that autocompletes suggestions",
+  "homepage": "http://ojjs.org/plugins.html#SuggestBox",
   "keywords": [
     "oj",
     "plugin",
-    "twitter",
-    "follow"
+    "suggest",
+    "box",
+    "text",
+    "autocomplete"
   ],
   "author": "Evan Moran <evan@evanmoran.com>",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ojjs/oj.TwitterButton.git"
+    "url": "git://github.com/ojjs/oj.SuggestBox.git"
   }
 }

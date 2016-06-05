@@ -1,6 +1,8 @@
-oj.TwitterButton
+oj.SuggestBox
 ============
 
-A Twitter button plugin for OJ
+A SuggestBox is a TextBox-like form element that suggests results to you.
 
-[ojjs.org/plugins#TwitterButton](http://ojjs.org/plugins#TwitterButton)
+    SuggestBox("initial value", {options:["these","will","autocomplete"]})
+
+[ojjs.org/plugins#SuggestBox](http://ojjs.org/plugins#SuggestBox)
